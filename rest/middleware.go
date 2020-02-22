@@ -11,6 +11,7 @@ import (
 
 // DefaultResponse - struct default to simple response
 type DefaultResponse struct {
+	Success bool
 	Status  int
 	Message string
 }
@@ -29,7 +30,7 @@ func EnableCors(handler http.Handler, c Cors) http.Handler {
 
 		// validation of method (request)
 		if !b.ContainStr(c.Methods, r.Method) {
-			err := DefaultResponse{http.StatusMethodNotAllowed, "Method not allowed!"}
+			err := DefaultResponse{false, http.StatusMethodNotAllowed, "Method not allowed!"}
 			RespondWithJson(w, http.StatusMethodNotAllowed, err)
 			return
 		}
@@ -38,7 +39,7 @@ func EnableCors(handler http.Handler, c Cors) http.Handler {
 		// TODO:
 		originRequest := ""
 		if len(c.Origins) > 0 && c.Origins[0] != "*" && !b.ContainStr(c.Origins, originRequest) {
-			err := DefaultResponse{http.StatusForbidden, "Origin not allowed!"}
+			err := DefaultResponse{false, http.StatusForbidden, "Origin not allowed!"}
 			RespondWithJson(w, http.StatusForbidden, err)
 			return
 		}

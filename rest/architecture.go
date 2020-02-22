@@ -19,7 +19,7 @@ func RespondWithJson(w http.ResponseWriter, code int, payload interface{}) {
 func Validate(w http.ResponseWriter, object interface{}) bool {
 	result, err := govalidator.ValidateStruct(object)
 	if !result && err != nil {
-		response := DefaultResponse{http.StatusBadRequest, err.Error()}
+		response := DefaultResponse{false, http.StatusBadRequest, err.Error()}
 		RespondWithJson(w, http.StatusBadRequest, response)
 		return false
 	}
