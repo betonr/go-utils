@@ -2,31 +2,32 @@ package mongoutils
 
 import (
 	"os"
-	"time"
 
 	"github.com/betonr/go-utils/base"
-	"gopkg.in/mgo.v2"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // ConnectMongo - open the connection with MONGO database
-func ConnectMongo() (*mgo.Database, error) {
+func ConnectMongo() (*mongo.Database, error) {
 	dbHost := base.GetBetween([]string{os.Getenv("DBHOST"), "localhost"})
 	dbPort := base.GetBetween([]string{os.Getenv("DBPORT"), "27017"})
-	dbName := base.GetBetween([]string{os.Getenv("DATABASE"), "db"})
+	dbName := base.GetBetween([]string{os.Getenv("DBNAME"), "db"})
 	dbUser := base.GetBetween([]string{os.Getenv("DBUSER"), "root"})
 	dbPass := base.GetBetween([]string{os.Getenv("DBPASS"), "mongo"})
 
-	dbInfos := &mgo.DialInfo{
-		Addrs:    []string{dbHost + ":" + dbPort},
-		Timeout:  60 * time.Second,
-		Database: "admin",
-		Username: dbUser,
-		Password: dbPass,
+	dbInfos := &options.ClientOptions{
+		Hosts: []string{dbHost + ":" + dbPort},
+		Auth: &options.Credential{
+			AuthSource: "admin",
+			Username:   dbUser,
+			Password:   dbPass,
+		},
 	}
 
-	session, err := mgo.DialWithInfo(dbInfos)
+	client, err := mongo.NewClient(dbInfos)
 	if err != nil {
 		return nil, err
 	}
-	return session.DB(dbName), nil
+	return client.Database(dbName), nil
 }
