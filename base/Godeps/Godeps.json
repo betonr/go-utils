@@ -1,6 +1,0 @@
-{
-	"ImportPath": "github.com/betonr/go-utils/base",
-	"GoVersion": "go1.11",
-	"GodepVersion": "v80",
-	"Deps": []
-}

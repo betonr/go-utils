@@ -1,0 +1,48 @@
+{
+	"ImportPath": "github.com/betonr/go-utils",
+	"GoVersion": "go1.13",
+	"GodepVersion": "v80",
+	"Packages": [
+		"./base",
+		"./rest",
+		"./rest/mongo",
+		"./rest/redis"
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/asaskevich/govalidator",
+			"Comment": "v10",
+			"Rev": "475eaeb164960a651e97470412a7d3b0c5036105"
+		},
+		{
+			"ImportPath": "github.com/gomodule/redigo/redis",
+			"Comment": "v1.7.0-16-g7ac8ae1",
+			"Rev": "7ac8ae1ada9f5220b813b7dbe2f7e9d30381982c"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Comment": "r2016.08.01-8-ga6b53ec",
+			"Rev": "a6b53ec6cb22a3699387a57a161566f9402ee85b"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2/bson",
+			"Comment": "r2016.08.01-8-ga6b53ec",
+			"Rev": "a6b53ec6cb22a3699387a57a161566f9402ee85b"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2/internal/json",
+			"Comment": "r2016.08.01-8-ga6b53ec",
+			"Rev": "a6b53ec6cb22a3699387a57a161566f9402ee85b"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2/internal/sasl",
+			"Comment": "r2016.08.01-8-ga6b53ec",
+			"Rev": "a6b53ec6cb22a3699387a57a161566f9402ee85b"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2/internal/scram",
+			"Comment": "r2016.08.01-8-ga6b53ec",
+			"Rev": "a6b53ec6cb22a3699387a57a161566f9402ee85b"
+		}
+	]
+}
