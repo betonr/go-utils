@@ -3,9 +3,10 @@
 	"GoVersion": "go1.13",
 	"GodepVersion": "v80",
 	"Packages": [
-		"./rest",
 		"./base",
-		"./rest/redis"
+		"./rest",
+		"./rest/redis",
+		"./rest/mongo"
 	],
 	"Deps": [
 		{
@@ -14,9 +15,51 @@
 			"Rev": "475eaeb164960a651e97470412a7d3b0c5036105"
 		},
 		{
+			"ImportPath": "github.com/go-stack/stack",
+			"Comment": "v1.8.0",
+			"Rev": "2fee6af1a9795aafbe0253a0cfbdf668e1fb8a9a"
+		},
+		{
+			"ImportPath": "github.com/golang/snappy",
+			"Comment": "v0.0.1-6-gff6b7dc",
+			"Rev": "ff6b7dc882cf4cfba7ee0b9f7dcc1ac096c554aa"
+		},
+		{
 			"ImportPath": "github.com/gomodule/redigo/redis",
 			"Comment": "v1.7.0-16-g7ac8ae1",
 			"Rev": "7ac8ae1ada9f5220b813b7dbe2f7e9d30381982c"
+		},
+		{
+			"ImportPath": "github.com/klauspost/compress",
+			"Comment": "v1.10.1-4-g60e4844",
+			"Rev": "60e484491bdba55c5c152f12bd1262e5a1da790b"
+		},
+		{
+			"ImportPath": "github.com/pkg/errors",
+			"Comment": "v0.9.1",
+			"Rev": "614d223910a179a466c1767a985424175c39b465"
+		},
+		{
+			"ImportPath": "github.com/xdg",
+			"Rev": "7eeb5667e42c09cb51bf7b7c28aea8c56767da90"
+		},
+		{
+			"ImportPath": "go.mongodb.org/mongo-driver",
+			"Comment": "v1.3.0-17-g102016b2",
+			"Rev": "102016b2e55e9330dc526a271119d8f6a8f9af59"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/pbkdf2",
+			"Rev": "2aa609cf4a9d7d1126360de73b55b6002f9e052a"
+		},
+		{
+			"ImportPath": "golang.org/x/sync/semaphore",
+			"Rev": "cd5d95a43a6e21273425c7ae415d3df9ea832eeb"
+		},
+		{
+			"ImportPath": "golang.org/x/text",
+			"Comment": "v0.3.2-6-g929e72c",
+			"Rev": "929e72ca90deac4784bbe451caf10faa5b256ebe"
 		}
 	]
 }
